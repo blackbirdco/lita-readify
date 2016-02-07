@@ -5,8 +5,6 @@
 
 Automaticaly tracks links with tags on [Readability](https://www.readability.com)
 
-*WARNING* Not tested yet.
-
 ## Installation
 
 Add lita-readify to your Lita instance's Gemfile:

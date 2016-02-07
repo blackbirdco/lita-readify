@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "lita-readify"
-  spec.version       = "0.0.1"
+  spec.version       = "0.1.0"
   spec.authors       = ["Loïc Delmaire"]
   spec.email         = ["loic@hellojam.fr"]
   spec.description   = "Automaticaly tracks links with tags on Readability"

@@ -33,6 +33,8 @@ describe Lita::Handlers::Readify, lita_handler: true do
     let(:article_id) { "article_id" }
 
     before do
+      Lita::Room.create_or_update(channel, name: channel.gsub('#', ''))
+
       allow_any_instance_of(Readit::API).to receive(:bookmark).and_return(
         OpenStruct.new(
           status: status,
@@ -67,12 +69,11 @@ describe Lita::Handlers::Readify, lita_handler: true do
         send_message(message, as: user, from: channel)
       end
 
-      it "replies with article link formatted and tags" do
+      it "replies with tags" do
         send_message(message, as: user, from: channel)
 
         expect(replies.last).to eq(
-          "*Link*: https://www.readability.com/articles/#{article_id}\n" +
-            "*Tags*: #{['skelz0r', 'veilles'].concat(tags).map { |tag| "##{tag}" }.join(' ')}"
+          "*Tags*: #{['skelz0r', 'veilles'].concat(tags).map { |tag| "##{tag}" }.join(' ')}"
         )
       end
     end

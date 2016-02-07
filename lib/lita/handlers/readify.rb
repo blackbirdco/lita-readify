@@ -21,9 +21,11 @@ module Lita
       )
 
       def register_link(r)
-        return unless authorized_channel?(r.room.name)
+        channel_name = "##{Lita::Room.find_by_id(r.room.id).name}"
 
-        tags = [r.user.mention_name, r.room.name.gsub('#', '')]
+        return unless authorized_channel?(channel_name)
+
+        tags = [r.user.mention_name, channel_name.gsub('#', '')]
         links = []
         words = r.message.body.scan(/\S+|\n+/)
 
@@ -43,7 +45,7 @@ module Lita
 
           links.each do |link|
             add_tags_to_link(link, tags)
-            r.reply(saved_link_message(link, tags))
+            r.reply(saved_link_message(tags))
           end
         end
       end
@@ -81,9 +83,8 @@ module Lita
         end
       end
 
-      def saved_link_message(link, tags)
-        "*Link*: https://www.readability.com/articles/#{link.article_id}\n" +
-          "*Tags*: #{tags.map { |tag| "##{tag}" }.join(' ')}"
+      def saved_link_message(tags)
+        "*Tags*: #{tags.map { |tag| "##{tag}" }.join(' ')}"
       end
     end
 

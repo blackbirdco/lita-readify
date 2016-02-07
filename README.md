@@ -1,7 +1,7 @@
 # lita-readify
 
 [![Build Status](https://travis-ci.org/blackbirdco/lita-readify.png?branch=master)](https://travis-ci.org/blackbirdco/lita-readify)
-[![Coverage Status](https://coveralls.io/repos/blackbirdco/lita-readify/badge.png)](https://coveralls.io/r/blackbirdco/lita-readify)
+[![Coverage Status](https://coveralls.io/repos/github/blackbirdco/lita-readify/badge.svg?branch=master)](https://coveralls.io/github/blackbirdco/lita-readify?branch=master)
 
 Automaticaly tracks links with tags on [Readability](https://www.readability.com)
 
